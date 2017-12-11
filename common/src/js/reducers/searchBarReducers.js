@@ -1,5 +1,3 @@
-import { types } from '../actions/searchBarActions';
-
 const defaultState = {
   location: '',
   restaurants: []
@@ -9,7 +7,7 @@ export default function searchBarReducer(state = defaultState, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case (types.CAPTURE_LOCATION): {
+    case 'CAPTURE_LOCATION': {
       return {
           ...state,
           location: payload
@@ -29,12 +27,6 @@ export default function searchBarReducer(state = defaultState, action) {
       }
     }
     
-    // case 'CAPTURE_LOCATION': {
-    //   return {
-    //     ...state,
-    //     location: payload
-    //   }
-    // }
     default: {
       return state;
     }

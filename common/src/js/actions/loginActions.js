@@ -38,14 +38,14 @@ export function updateLoginPassword(password) {
 }
 
 export function loginAuth(email, password, owner) {
-    console.log('https://delicious-deliveries.herokuapp.com/api/Owners', {
+    console.log('https://zs-delicious-deliveries.herokuapp.com/api/Owners', {
         owner,
         email,
         password
     });
     return (dispatch) => {
         if (owner == "true") {
-            axios.post('https://delicious-deliveries.herokuapp.com/api/Owners/login', { email, password })
+            axios.post('https://zs-delicious-deliveries.herokuapp.com/api/Owners/login', { email, password })
                 .then(results => {
                     document.cookie = 'ACCESS_TOKEN=' + results.data.id;
                     dispatch({
@@ -55,7 +55,7 @@ export function loginAuth(email, password, owner) {
                 })
                 .catch(err => { console.log(err); alert('Invalid Sign In') });
         } else {
-            axios.post('https://delicious-deliveries.herokuapp.com/api/Customers/login', { email, password })
+            axios.post('https://zs-delicious-deliveries.herokuapp.com/api/Customers/login', { email, password })
                 .then(results => {
                     document.cookie = 'ACCESS_TOKEN=' + results.data.id;
                     dispatch({

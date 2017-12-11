@@ -1,10 +1,10 @@
 import { types } from '../actions/updateOwnerInfoActions';
 
 const defaultState = {
-    username: "",
-    password: "",
-    name: "",
-    phonenumber: "",
+    username: '',
+    password: '',
+    name: '',
+    phonenumber: '',
 };
 
 export default function updateOwnerInfoReducer (state = defaultState, action) {
@@ -14,7 +14,7 @@ export default function updateOwnerInfoReducer (state = defaultState, action) {
             case types.CHANGE_OWNER_INFO: {
                 if(payload) {
                     console.log('SUCCESS')
-                    window.location.href = `https://delicious-deliveries.herokuapp.com/#/owner/${payload.id}/`;
+                    window.location.href = `https://zs-delicious-deliveries.herokuapp.com/#/owner/${payload.id}/`;
                     return {
                         ...state,
                         username: '',
@@ -27,7 +27,6 @@ export default function updateOwnerInfoReducer (state = defaultState, action) {
                     return {
                         ...state
                     };
-                    break;
                 }
             }
 
@@ -36,7 +35,6 @@ export default function updateOwnerInfoReducer (state = defaultState, action) {
                     ...state,
                     username: payload
                 };
-                break;
             }
 
             case (types.CHANGE_PASSWORD): {
@@ -44,7 +42,6 @@ export default function updateOwnerInfoReducer (state = defaultState, action) {
                     ...state,
                     password: payload
                 };
-                break;
             }
 
             case (types.CHANGE_NAME): {
@@ -52,7 +49,6 @@ export default function updateOwnerInfoReducer (state = defaultState, action) {
                     ...state,
                     name: payload
                 };
-                break;
             }
 
             case (types.CHANGE_PHONENUMBER): {
@@ -60,7 +56,6 @@ export default function updateOwnerInfoReducer (state = defaultState, action) {
                     ...state,
                     phonenumber: payload
                 };
-                break;
             }
             default: {
                 return state;

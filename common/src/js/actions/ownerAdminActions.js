@@ -5,7 +5,7 @@ export const getOwnerRestaurants = ownerId => {
         dispatch({
             type: 'GET_OWNER_RESTAURANTS',
         });
-        Axios.get('https://delicious-deliveries.herokuapp.com/api/Owners/' + ownerId + '/restaurants')
+        Axios.get('https://zsdelicious-deliveries.herokuapp.com/api/Owners/' + ownerId + '/restaurants')
         .then(res => {
             console.log(res.data);
             dispatch({

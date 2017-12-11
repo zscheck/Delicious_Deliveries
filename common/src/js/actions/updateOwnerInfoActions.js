@@ -12,7 +12,7 @@ export function changeOwnerInfo(name, email, password, phone_number, currentOwne
     console.log(name, email, password, phone_number, currentOwnerId);
     
 return (dispatch) => {
- axios.put(`https://delicious-deliveries.herokuapp.com/api/Owners/${currentOwnerId}`, {name, email, password, phone_number})
+ axios.put(`https://zs-delicious-deliveries.herokuapp.com/api/Owners/${currentOwnerId}`, {name, email, password, phone_number})
     .then(results => {
         dispatch({
             type: types.CHANGE_OWNER_INFO,

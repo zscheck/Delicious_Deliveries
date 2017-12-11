@@ -1,17 +1,11 @@
 import Axios from 'axios';
 
-export const types = {
-    UPDATE_SEARCH_LOCATION: 'UPDATE_SEARCH_LOCATION',  
-    UPDATE_SEARCH_LOCATION_SUCCESS: 'UPDATE_SEARCH_LOCATION_SUCCESS',
-    CAPTURE_LOCATION: 'CAPTURE_LOCATION',
-}
-
 export const updateSearchLocation = input => {
     return (dispatch) => {
         dispatch({
             type: 'UPDATE_SEARCH_LOCATION',
         });
-        Axios.get('https://delicious-deliveries.herokuapp.com/api/Restaurants')
+        Axios.get('https://zs-delicious-deliveries.herokuapp.com/api/Restaurants')
         .then(res => {
             dispatch({
                 type: 'UPDATE_SEARCH_LOCATION_SUCCESS',
@@ -20,7 +14,7 @@ export const updateSearchLocation = input => {
         })
         .catch(err => {
             dispatch({
-                type: 'UPDATE_SEARCH_LOCATION_REJECTED',
+                type: 'UPDATE_SEARCH_LOCATION_FAIL',
                 payload: err
             })
         })
@@ -29,7 +23,7 @@ export const updateSearchLocation = input => {
 
 export function captureLocation(location) {
     return {
-        type: types.CAPTURE_LOCATION,
+        type: 'CAPTURE_LOCATION',
         payload: location
     };
 }

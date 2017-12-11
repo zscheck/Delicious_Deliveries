@@ -1,52 +1,43 @@
 import axios from 'axios';
 
-export const types = {
-    ADD_MENU_ITEM_NAME: 'ADD_MENU_ITEM_NAME',
-    ADD_MENU_ITEM_PRICE: 'ADD_MENU_ITEM_PRICE',
-    ADD_MENU_ITEM_DESCRIPTION: 'ADD_MENU_ITEM_DESCRIPTION',
-    ADD_MENU_ITEM_CATEGORY: 'ADD_MENU_ITEM_CATEGORY',
-    ADD_NEW_MENU_ITEM: 'ADD_NEW_MENU_ITEM',
-}
-
-
 export function updateItemName(value) {
     return {
-        type: types.ADD_MENU_ITEM_NAME,
+        type: 'ADD_MENU_ITEM_NAME',
         payload: value
     };
 }
 
 export function updateItemPrice(value) {
     return {
-        type: types.ADD_MENU_ITEM_PRICE,
+        type: 'ADD_MENU_ITEM_PRICE',
         payload: value
     };
 }
 
 export function updateItemDescription(value) {
     return {
-        type: types.ADD_MENU_ITEM_DESCRIPTION,
+        type: 'ADD_MENU_ITEM_DESCRIPTION',
         payload: value
     };
 }
 
 export function updateItemCategory(value) {
     return {
-        type: types.ADD_MENU_ITEM_CATEGORY,
+        type: 'ADD_MENU_ITEM_CATEGORY',
         payload: value
     };
 }
 
 export function addNewMenuItem(name, price, description, category, restId) {
     return (dispatch) => {
-        axios.get(`https://delicious-deliveries.herokuapp.com/api/Restaurants/${restId}/menus`)
+        axios.get(`https://zs-delicious-deliveries.herokuapp.com/api/Restaurants/${restId}/menus`)
             .then(results => results.data.id)
             .then(res => {
-                axios.post(`https://delicious-deliveries.herokuapp.com/api/Menus/${res}/menuItems`, {name, price, description, category})
+                axios.post(`https://zs-delicious-deliveries.herokuapp.com/api/Menus/${res}/menuItems`, {name, price, description, category})
                 .then(response => {
                     alert('Item Added');
                     dispatch({
-                        type: types.ADD_NEW_MENU_ITEM,
+                        type: 'ADD_NEW_MENU_ITEM',
                         payload: response.data
                     })
                 })

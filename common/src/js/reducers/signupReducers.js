@@ -14,7 +14,7 @@ export default function SignUpReducer (state = INITIAL_STATE, action) {
     switch (type) {
         case types.ADD_OWNER: {
             if (payload) {
-                window.location.href= 'https://delicious-deliveries.herokuapp.com/#/login';
+                window.location.href= 'https://zs-delicious-deliveries.herokuapp.com/#/login';
                 return {
                     ...state,
                     name: payload.name,
@@ -27,7 +27,6 @@ export default function SignUpReducer (state = INITIAL_STATE, action) {
                 return {
                     ...state
                 };
-                break;
             }
             
 
@@ -35,7 +34,7 @@ export default function SignUpReducer (state = INITIAL_STATE, action) {
 
         case types.ADD_CUSTOMER: {
             if (payload) {
-                window.location.href= 'https://delicious-deliveries.herokuapp.com/#/login';
+                window.location.href= 'https://zs-delicious-deliveries.herokuapp.com/#/login';
                 return {
                     ...state,
                     name: payload.name,
@@ -48,7 +47,6 @@ export default function SignUpReducer (state = INITIAL_STATE, action) {
                 return {
                     ...state
                 };
-                break;
             }
         }
 
@@ -56,16 +54,14 @@ export default function SignUpReducer (state = INITIAL_STATE, action) {
             return {
                 ...state,
                 owner: payload
-            };
-            break;
+            }
         }
 
         case (types.UPDATE_NAME): {
             return {
                 ...state,
                 name: payload
-            };
-            break;
+            }
         }
         
 
@@ -73,24 +69,21 @@ export default function SignUpReducer (state = INITIAL_STATE, action) {
             return {
                 ...state,
                 password: payload
-            };
-            break;
+            }
         }
 
         case (types.UPDATE_PHONENUMBER): {
             return {
                 ...state,
                 phone_number: payload
-            };
-            break;
+            }
         }
 
         case (types.UPDATE_USERNAME): {
             return {
                 ...state,
                 email: payload
-            };
-            break;
+            }
         }
         default: {
             return state;

@@ -3,7 +3,7 @@ import { types } from '../actions/loginActions';
 const INITIAL_STATE = {
     email: '',
     password: '',
-    owner: '',
+    owner: 'false',
     activeOwner: false,
     activeCustomer: false,
     currentOwnerId: '',
@@ -16,7 +16,7 @@ export default function LoginReducer(state = INITIAL_STATE, action) {
     switch (type) {
         case types.LOGIN_OWNER: {
             if (payload) {
-                window.location.href= `https://delicious-deliveries.herokuapp.com/#/owner/${payload.userId}`;
+                window.location.href= `https://zs-delicious-deliveries.herokuapp.com/#/owner/${payload.userId}`;
                 return {
                     ...state,
                     currentOwnerId: payload.userId,
@@ -29,12 +29,11 @@ export default function LoginReducer(state = INITIAL_STATE, action) {
                     password: ''
                 };
             }
-            break;
         }
         case types.LOGIN_CUSTOMER: {
             if (payload) {
                 // window.history.go(-1);
-                window.location.href= `https://delicious-deliveries.herokuapp.com/#/`;
+                window.location.href= `https://zs-delicious-deliveries.herokuapp.com/#/`;
                 return {
                     ...state,
                     currentCustomerId: payload.userId,
@@ -47,7 +46,6 @@ export default function LoginReducer(state = INITIAL_STATE, action) {
                     password: ''
                 };
             }
-            break;
         }
 
         case (types.OWNER_TOGGLE_LOGIN): {
@@ -55,7 +53,6 @@ export default function LoginReducer(state = INITIAL_STATE, action) {
                 ...state,
                 owner: payload
             };
-            break;
         }
 
         case (types.UPDATE_USERNAME_LOGIN): {
@@ -63,7 +60,6 @@ export default function LoginReducer(state = INITIAL_STATE, action) {
                 ...state,
                 email: payload
             };
-            break;
         }
 
         case (types.UPDATE_PASSWORD_LOGIN): {
@@ -71,7 +67,6 @@ export default function LoginReducer(state = INITIAL_STATE, action) {
                 ...state,
                 password: payload
             };
-            break;
         }
         case (types.UPDATE_LOGOUT): {
             return {
@@ -81,7 +76,6 @@ export default function LoginReducer(state = INITIAL_STATE, action) {
                 currentOwnerId: '',
                 currentCustomerId: ''
             };
-            break;
         }
         default: {
             return state;
