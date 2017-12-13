@@ -11,7 +11,7 @@ export default function updateOwnerInfoReducer (state = defaultState, action) {
     const { type, payload } = action;
 
         switch (type) {
-            case types.CHANGE_OWNER_INFO: {
+            case 'CHANGE_OWNER_INFO': {
                 if(payload) {
                     console.log('SUCCESS')
                     window.location.href = `https://zs-delicious-deliveries.herokuapp.com/#/owner/${payload.id}/`;
@@ -30,28 +30,28 @@ export default function updateOwnerInfoReducer (state = defaultState, action) {
                 }
             }
 
-            case (types.CHANGE_USERNAME): {
+            case 'CHANGE_USERNAME': {
                 return {
                     ...state,
                     username: payload
                 };
             }
 
-            case (types.CHANGE_PASSWORD): {
+            case 'CHANGE_PASSWORD': {
                 return {
                     ...state,
                     password: payload
                 };
             }
 
-            case (types.CHANGE_NAME): {
+            case 'CHANGE_NAME': {
                 return {
                     ...state,
                     name: payload
                 };
             }
 
-            case (types.CHANGE_PHONENUMBER): {
+            case 'CHANGE_PHONENUMBER': {
                 return {
                     ...state,
                     phonenumber: payload
